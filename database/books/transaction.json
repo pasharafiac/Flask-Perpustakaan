@@ -1,0 +1,36 @@
+{
+    "user_records_transaction": [
+        {
+            "account_info": {
+                "email": "user@example.com",
+                "fullname": "John User",
+                "password": "user#1234",
+                "role": "user",
+                "username": "user"
+            },
+            "book_id": "B007",
+            "book_title": "Steve Jobs: The Innovative Genius",
+            "category": "biography",
+            "borrow_date": "2024-10-13",
+            "return_date": "2024-10-13",
+            "status": "Dikembalikan",
+            "transaction_date": "2024-10-13 17:48:04"
+        },
+        {
+            "account_info": {
+                "email": "user@example.com",
+                "fullname": "John User",
+                "password": "user#1234",
+                "role": "user",
+                "username": "user"
+            },
+            "book_id": "F001",
+            "book_title": "The Shadow's Whisper",
+            "category": "fiction",
+            "borrow_date": "2024-10-13",
+            "return_date": "2024-10-13",
+            "status": "Dikembalikan",
+            "transaction_date": "2024-10-13 17:58:56"
+        }
+    ]
+}

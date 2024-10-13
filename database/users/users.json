@@ -1,0 +1,23 @@
+{
+    "admin": {
+        "fullname": "John Admin",
+        "username": "admin",
+        "email": "admin@example.com",
+        "password": "admin#1234",
+        "role": "admin"
+    },
+    "petugas": {
+        "fullname": "John Petugas",
+        "username": "petugas",
+        "email": "petugas@example.com",
+        "password": "petugas#1234",
+        "role": "petugas"
+    },
+    "user": {
+        "fullname": "John User",
+        "username": "user",
+        "email": "user@example.com",
+        "password": "user#1234",
+        "role": "user"
+    }
+}

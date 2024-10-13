@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Daftar - Perpustakaan Kota Ngawi{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Daftar Anggota Baru</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('register') }}">
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="fullname" name="fullname" required minlength="2" maxlength="100" pattern="^[a-zA-Z\s]+$" title="Nama lengkap hanya boleh berisi huruf dan spasi">
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nama Pengguna</label>
+                        <input type="text" class="form-control" id="username" name="username" required minlength="3" maxlength="20" pattern="^[a-z0-9_]+$" title="Nama pengguna hanya boleh berisi huruf kecil, angka, dan garis bawah">
+                        {% if username_taken %}
+                            <div class="alert alert-warning mt-2" role="alert">
+                                Nama pengguna sudah digunakan. Silakan pilih nama pengguna lain.
+                            </div>
+                        {% else %}
+                            <small class="form-text text-muted">Nama pengguna hanya boleh berisi huruf kecil, angka, dan garis bawah.</small>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Alamat Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Masukkan alamat email yang valid">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Kata Sandi</label>
+                        <input type="password" class="form-control" id="password" name="password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Kata sandi harus terdiri dari minimal 8 karakter, setidaknya satu huruf besar, satu huruf kecil, dan satu angka">
+                        <small class="form-text text-muted">Kata sandi harus terdiri dari minimal 8 karakter, setidaknya satu huruf besar, satu huruf kecil, dan satu angka.</small>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Daftar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-0">Sudah punya akun? <a href="{{ url_for('login') }}">Masuk di sini</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

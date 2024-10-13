@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout Buku - Perpustakaan Digital{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Checkout Buku</h2>
+    
+    {% if book %}
+        <!-- Card untuk menampilkan informasi buku -->
+        <div class="card mb-4">
+            <!-- Baris untuk layout responsif -->
+            <div class="row g-0">
+                <!-- Kolom untuk gambar sampul buku -->
+                <div class="col-md-4 d-flex justify-content-center align-items-center" style="height: 250px; width: 250px; margin: 15px auto;">
+                    {% if book.cover_image %}
+                        <!-- Menampilkan gambar sampul buku jika tersedia -->
+                        <img src="{{ book.cover_image }}" class="img-fluid rounded-start w-100 h-100 object-fit-contain" alt="{{ book.title }}">
+                    {% else %}
+                        <!-- Menampilkan gambar default jika tidak ada sampul buku -->
+                        <img src="https://diybookcovers.com/wp-content/uploads/2023/07/scifi6thumb.jpg" class="img-fluid rounded-start w-100 h-100 object-fit-contain" alt="Default book cover">
+                    {% endif %}
+                </div>
+                <!-- Kolom untuk informasi buku -->
+                <div class="col-12 text-center">
+                    <!-- Badan kartu untuk menampilkan detail buku -->
+                    <div class="card-body mt-3">
+                        <div>
+                            <!-- Judul buku -->
+                            <h5 class="card-title">{{ book.title }}</h5>
+                            <!-- Informasi penulis -->
+                            <p class="card-text">Penulis: {{ book.author }}</p>
+                            <!-- Tahun terbit buku -->
+                            <p class="card-text">Tahun Terbit: {{ book.year }}</p>
+                            <!-- Nomor ISBN buku -->
+                            <p class="card-text">ISBN: {{ book.isbn }}</p>
+                            <!-- status ketersediaan buku -->
+                            <p class="card-text">
+                                Status: 
+                                <span class="badge {% if book.available %}bg-success{% else %}bg-danger{% endif %}">
+                                    {% if book.available %}Tersedia{% else %}Tidak Tersedia{% endif %}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if book.available %}
+            <!-- Form untuk proses peminjaman buku -->
+            <form method="POST" action="{{ url_for('book_checkout', category=category, book_id=book.id) }}">
+                <!-- Input untuk tanggal peminjaman -->
+                <div class="mb-3">
+                    <label for="borrowDate" class="form-label">Tanggal Peminjaman</label>
+                    <input type="date" class="form-control" id="borrowDate" name="borrowDate" required value="{{ today.strftime('%Y-%m-%d') }}" min="{{ today.strftime('%Y-%m-%d') }}">
+                    <div id="borrowDateError" class="invalid-feedback" style="display: none;">
+                        Tanggal peminjaman tidak boleh kurang dari tanggal hari ini.
+                    </div>
+                    <small class="form-text text-muted">*Tanggal peminjaman secara default diatur untuk hari ini.</small>
+                </div>
+                <!-- Input untuk tanggal pengembalian -->
+                <div class="mb-3">
+                    <label for="returnDate" class="form-label">Tanggal Pengembalian</label>
+                    <input type="date" class="form-control" id="returnDate" name="returnDate" required value="{{ tomorrow.strftime('%Y-%m-%d') }}">
+                    <div id="returnDateError" class="invalid-feedback" style="display: none;">
+                        Tanggal pengembalian tidak boleh sama dengan tanggal peminjaman dan tidak boleh lebih dari 1 minggu.
+                    </div>
+                    <small class="form-text text-muted">*Secara default, tanggal pengembalian diatur untuk besok.</small>
+                </div>
+                <!-- Tombol untuk mengonfirmasi peminjaman dan kembali ke daftar buku -->
+                <div class="d-flex flex-column flex-sm-row gap-2">
+                    <button type="submit" class="btn btn-primary flex-grow-1" onclick="showSuccessPopup(event)">Konfirmasi Peminjaman</button>
+                    <a href="{{ url_for('borrow_book', category=category) }}" class="btn btn-secondary flex-grow-1">Kembali ke Daftar Buku</a>
+                </div>
+            </form>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                Maaf, buku ini sedang tidak tersedia untuk dipinjam.
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Buku tidak ditemukan.
+        </div>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById('borrowDate').addEventListener('change', validateDates);
+    document.getElementById('returnDate').addEventListener('change', validateDates);
+
+    function showSuccessPopup(event) {
+        event.preventDefault();
+        
+        // Create the modal element
+        var modal = document.createElement('div');
+        modal.className = 'modal fade';
+        modal.id = 'successModal';
+        modal.setAttribute('tabindex', '-1');
+        modal.setAttribute('aria-labelledby', 'successModalLabel');
+        modal.setAttribute('aria-hidden', 'true');
+        
+        // Set the modal content
+        modal.innerHTML = `
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Peminjaman Berhasil</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Buku telah berhasil dipinjam
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Append the modal to the body
+        document.body.appendChild(modal);
+        
+        // Show the modal
+        var bootstrapModal = new bootstrap.Modal(modal);
+        bootstrapModal.show();
+        
+        // Submit the form when the modal is hidden
+        modal.addEventListener('hidden.bs.modal', function () {
+            document.querySelector('form').submit();
+        });
+    }
+
+    function validateDates() {
+        var borrowDate = new Date(document.getElementById('borrowDate').value);
+        var returnDate = new Date(document.getElementById('returnDate').value);
+        var today = new Date("{{ today.strftime('%Y-%m-%d') }}");
+        var maxReturnDate = new Date(borrowDate);
+        maxReturnDate.setDate(maxReturnDate.getDate() + 7);
+
+        var borrowDateValid = borrowDate >= today;
+        var returnDateValid = returnDate > borrowDate && returnDate <= maxReturnDate;
+
+        document.getElementById('borrowDate').classList.toggle('is-invalid', !borrowDateValid);
+        document.getElementById('borrowDateError').style.display = borrowDateValid ? 'none' : 'block';
+
+        document.getElementById('returnDate').classList.toggle('is-invalid', !returnDateValid);
+        document.getElementById('returnDateError').style.display = returnDateValid ? 'none' : 'block';
+
+        // Disable the submit button if any validation fails
+        var submitButton = document.querySelector('button[type="submit"]');
+        submitButton.disabled = !(borrowDateValid && returnDateValid);
+    }
+
+    // Initial validation
+    validateDates();
+</script>
+
+{% endblock %}

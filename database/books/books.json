@@ -1,0 +1,381 @@
+{
+    "Limited Edition": [
+        {
+            "id": "LE001",
+            "title": "Ambatron - Robot Dari Mr. Ironi",
+            "author": "Rusdi",
+            "year": 2024,
+            "isbn": "9781234567890",
+            "available": true,
+            "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDVA7ThHhN7oyE21ENTUdl-s6jNwQHJ4F-Uhd7U5dvlPNaT0xzX8pel-lo7wzuCkpn224&usqp=CAU"
+        }
+    ],
+    "fiction": [
+        {
+            "id": "F001",
+            "title": "The Shadow's Whisper",
+            "author": "Elena Blackwood",
+            "year": 2022,
+            "isbn": "9781234567890",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction1/300/450"
+        },
+        {
+            "id": "F002",
+            "title": "Echoes of Eternity",
+            "author": "Marcus Holloway",
+            "year": 2021,
+            "isbn": "9780987654321",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction2/300/450"
+        },
+        {
+            "id": "F004",
+            "title": "Whispers in the Wind",
+            "author": "Liam O'Connor",
+            "year": 2020,
+            "isbn": "9780011223344",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction4/300/450"
+        },
+        {
+            "id": "F005",
+            "title": "The Forgotten Realm",
+            "author": "Amelia Hartley",
+            "year": 2022,
+            "isbn": "9781357924680",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction5/300/450"
+        },
+        {
+            "id": "F007",
+            "title": "The Crimson Pact",
+            "author": "Olivia Blackburn",
+            "year": 2023,
+            "isbn": "9781592637480",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction7/300/450"
+        },
+        {
+            "id": "F008",
+            "title": "Echoes of Yesterday",
+            "author": "Nathan Winters",
+            "year": 2020,
+            "isbn": "9780369258147",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction8/300/450"
+        },
+        {
+            "id": "F010",
+            "title": "Whispers of the Ancients",
+            "author": "Ethan Blackwood",
+            "year": 2021,
+            "isbn": "9780951847362",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction10/300/450"
+        },
+        {
+            "id": "F011",
+            "title": "The Lost City",
+            "author": "Sarah Johnson",
+            "year": 2023,
+            "isbn": "9781234567893",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction11/300/450"
+        },
+        {
+            "id": "F012",
+            "title": "Beneath the Starlit Sky",
+            "author": "Michael Chang",
+            "year": 2022,
+            "isbn": "9780987654324",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction12/300/450"
+        },
+        {
+            "id": "F013",
+            "title": "The Time Traveler's Dilemma",
+            "author": "Emma Green",
+            "year": 2021,
+            "isbn": "9781122334458",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/fiction13/300/450"
+        }
+    ],
+    "non-fiction": [
+        {
+            "id": "NF001",
+            "title": "The Digital Revolution",
+            "author": "Dr. Sarah Johnson",
+            "year": 2022,
+            "isbn": "9781234509876",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction1/300/450"
+        },
+        {
+            "id": "NF003",
+            "title": "The Future of Sustainable Energy",
+            "author": "Emma Green",
+            "year": 2023,
+            "isbn": "9781122998877",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction3/300/450"
+        },
+        {
+            "id": "NF004",
+            "title": "Decoding the Human Genome",
+            "author": "Dr. James Watson",
+            "year": 2020,
+            "isbn": "9780011776655",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction4/300/450"
+        },
+        {
+            "id": "NF006",
+            "title": "Exploring the Deep Ocean",
+            "author": "Dr. Robert Ballard",
+            "year": 2021,
+            "isbn": "9780246112233",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction6/300/450"
+        },
+        {
+            "id": "NF007",
+            "title": "The Psychology of Success",
+            "author": "Dr. Emily Brooks",
+            "year": 2023,
+            "isbn": "9781592001122",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction7/300/450"
+        },
+        {
+            "id": "NF009",
+            "title": "The Science of Climate Change",
+            "author": "Dr. Maria Rodriguez",
+            "year": 2022,
+            "isbn": "9781478667788",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction9/300/450"
+        },
+        {
+            "id": "NF010",
+            "title": "The Art of Public Speaking",
+            "author": "Thomas Anderson",
+            "year": 2021,
+            "isbn": "9780951223344",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction10/300/450"
+        },
+        {
+            "id": "NF011",
+            "title": "The Power of Habit",
+            "author": "Charles Duhigg",
+            "year": 2020,
+            "isbn": "9781234509877",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction11/300/450"
+        },
+        {
+            "id": "NF012",
+            "title": "Sapiens: A Brief History of Humankind",
+            "author": "Yuval Noah Harari",
+            "year": 2021,
+            "isbn": "9780987612346",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction12/300/450"
+        },
+        {
+            "id": "NF013",
+            "title": "The Innovator's Dilemma",
+            "author": "Clayton M. Christensen",
+            "year": 2022,
+            "isbn": "9781122998878",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/nonfiction13/300/450"
+        }
+    ],
+    "science": [
+        {
+            "id": "S001",
+            "title": "Quantum Entanglement Explained",
+            "author": "Dr. Lisa Chen",
+            "year": 2022,
+            "isbn": "9781234567891",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science1/300/450"
+        },
+        {
+            "id": "S003",
+            "title": "Exploring Exoplanets",
+            "author": "Dr. Sarah Connor",
+            "year": 2023,
+            "isbn": "9781122334456",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science3/300/450"
+        },
+        {
+            "id": "S004",
+            "title": "The Mystery of Dark Matter",
+            "author": "Prof. Stephen Black",
+            "year": 2020,
+            "isbn": "9780011223345",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science4/300/450"
+        },
+        {
+            "id": "S006",
+            "title": "The Science of Climate Change",
+            "author": "Dr. Michael Mann",
+            "year": 2021,
+            "isbn": "9780246813580",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science6/300/450"
+        },
+        {
+            "id": "S007",
+            "title": "Neuroscience: Unlocking the Brain's Secrets",
+            "author": "Prof. Oliver Sacks",
+            "year": 2023,
+            "isbn": "9781592637481",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science7/300/450"
+        },
+        {
+            "id": "S009",
+            "title": "Nanotechnology: Small Science, Big Impact",
+            "author": "Dr. Richard Feynman",
+            "year": 2022,
+            "isbn": "9781478523691",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science9/300/450"
+        },
+        {
+            "id": "S010",
+            "title": "The Search for Extraterrestrial Intelligence",
+            "author": "Dr. Jill Tarter",
+            "year": 2021,
+            "isbn": "9780951847363",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science10/300/450"
+        },
+        {
+            "id": "S011",
+            "title": "The Elegant Universe",
+            "author": "Brian Greene",
+            "year": 2000,
+            "isbn": "9780375708114",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science11/300/450"
+        },
+        {
+            "id": "S012",
+            "title": "A Brief History of Time",
+            "author": "Stephen Hawking",
+            "year": 1988,
+            "isbn": "9780553380163",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science12/300/450"
+        },
+        {
+            "id": "S014",
+            "title": "Silent Spring",
+            "author": "Rachel Carson",
+            "year": 1962,
+            "isbn": "9780618249060",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/science14/300/450"
+        }
+    ],
+    "biography": [
+        {
+            "id": "B007",
+            "title": "Steve Jobs: The Innovative Genius",
+            "author": "Walter Isaacson",
+            "year": 2011,
+            "isbn": "9781451648539",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography7/300/450"
+        },
+        {
+            "id": "B008",
+            "title": "The Diary of a Young Girl",
+            "author": "Anne Frank",
+            "year": 1947,
+            "isbn": "9780553296983",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography8/300/450"
+        },
+        {
+            "id": "B010",
+            "title": "The Autobiography of Malcolm X",
+            "author": "Malcolm X with Alex Haley",
+            "year": 1965,
+            "isbn": "9780345350688",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography10/300/450"
+        },
+        {
+            "id": "B011",
+            "title": "Becoming",
+            "author": "Michelle Obama",
+            "year": 2018,
+            "isbn": "9781524763138",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography11/300/450"
+        },
+        {
+            "id": "B013",
+            "title": "Team of Rivals: The Political Genius of Abraham Lincoln",
+            "author": "Doris Kearns Goodwin",
+            "year": 2005,
+            "isbn": "9780743270755",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography13/300/450"
+        },
+        {
+            "id": "B014",
+            "title": "The Rise of Theodore Roosevelt",
+            "author": "Edmund Morris",
+            "year": 1979,
+            "isbn": "9780375756787",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography14/300/450"
+        },
+        {
+            "id": "B016",
+            "title": "The Immortal Life of Henrietta Lacks",
+            "author": "Rebecca Skloot",
+            "year": 2010,
+            "isbn": "9781400052172",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography16/300/450"
+        },
+        {
+            "id": "B017",
+            "title": "Frida: A Biography of Frida Kahlo",
+            "author": "Hayden Herrera",
+            "year": 1983,
+            "isbn": "9780060085896",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography17/300/450"
+        },
+        {
+            "id": "B019",
+            "title": "The Autobiography of Benjamin Franklin",
+            "author": "Benjamin Franklin",
+            "year": 1791,
+            "isbn": "9780486290737",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography19/300/450"
+        },
+        {
+            "id": "B020",
+            "title": "Cleopatra: A Life",
+            "author": "Stacy Schiff",
+            "year": 2010,
+            "isbn": "9780316001922",
+            "available": true,
+            "cover_image": "https://picsum.photos/seed/biography20/300/450"
+        }
+    ]
+}

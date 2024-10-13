@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Perpustakaan Kota Ngawi{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Login</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('login') }}">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nama Pengguna</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Kata Sandi</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="d-grid">
+                        {% if password_incorrect or username_not_found %}
+                            <div class="alert alert-warning mt-2 mb-3" role="alert">
+                                Gagal login, pastikan username dan password benar
+                            </div>
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary">Masuk</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-0">Belum punya akun? <a href="{{ url_for('register') }}">Daftar di sini</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

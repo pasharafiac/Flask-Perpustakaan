@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Beranda - Perpustakaan Digital{% endblock %}
+
+{% block content %}
+
+<!-- Bagian Selamat Datang -->
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">Selamat Datang di Perpustakaan Digital</h2>
+        <p class="lead">Temukan pengetahuan dan petualangan melalui koleksi buku kami yang beragam secara online.</p>
+    </div>
+</div>
+
+<!-- Bagian Layanan Utama -->
+<div class="row mt-4">
+    <!-- Login -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Login</h5>
+                <p class="card-text flex-grow-1">Masuk ke akun Anda untuk mengakses layanan perpustakaan.</p>
+                <a href="{{ url_for('login') }}" class="btn btn-primary mt-auto">Login</a>
+            </div>
+        </div>
+    </div>
+    <!-- Daftar -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Daftar</h5>
+                <p class="card-text flex-grow-1">Belum punya akun? Daftar sekarang untuk menikmati layanan perpustakaan.</p>
+                <a href="{{ url_for('register') }}" class="btn btn-primary mt-auto">Daftar</a>
+            </div>
+        </div>
+    </div>
+    <!-- Dashboard -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Dashboard</h5>
+                <p class="card-text flex-grow-1">Akses dashboard untuk melihat informasi akun dan aktivitas Anda.</p>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary mt-auto">Ke Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bagian Testimonial -->
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h3 class="mb-3 text-center">Apa Kata Mereka</h3>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Testimonial 1 -->
+                <div class="carousel-item active">
+                    <div class="card h-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-center" style="height: 250px;">
+                            <p class="card-text fs-4">"Perpustakaan Digital ini luar biasa! Saya bisa mengakses ribuan buku dari rumah dengan mudah."</p>
+                            <p class="card-text mt-auto"><small class="text-muted">- Andi, Mahasiswa</small></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="carousel-item">
+                    <div class="card h-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-center" style="height: 250px;">
+                            <p class="card-text fs-4">"Layanan peminjaman buku digital sangat cepat dan efisien. Saya bisa langsung membaca buku yang saya inginkan."</p>
+                            <p class="card-text mt-auto"><small class="text-muted">- Siti, Guru</small></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="carousel-item">
+                    <div class="card h-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-center" style="height: 250px;">
+                            <p class="card-text fs-4">"Layanan memuaskan, saya sangat senang dengan koleksi buku yang ada dan mudah untuk mencari buku yang saya inginkan."</p>
+                            <p class="card-text mt-auto"><small class="text-muted">- Budi, Wiraswasta</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Kontrol Carousel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Buku Terpopuler -->
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h3 class="mb-3 text-start">Buku Terpopuler</h3>
+        <p class="mb-3 text-muted">Berikut adalah daftar buku yang paling sering dipinjam dan dibaca oleh pengguna Perpustakaan Digital. Temukan inspirasi bacaan Anda berikutnya dari pilihan favorit komunitas kami!</p>
+        <div class="row">
+            {% set book_count = namespace(value=0) %}
+            {% for category, books in books.items() %}
+                {% for book in books %}
+                    {% if book_count.value < 6 %}
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <div class="card-img-container" style="height: 450px; overflow: hidden;">
+                                    <img src="{{ book.cover_image }}" class="card-img-top" alt="{{ book.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ book.title }}</h5>
+                                    <p class="card-text">Penulis: {{ book.author }}</p>
+                                    <p class="card-text"><small class="text-muted">Tahun: {{ book.year }}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% set book_count.value = book_count.value + 1 %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    
+<!-- Bagian Tentang Kami -->
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h3>Tentang Kami</h3>
+        <p>Perpustakaan Digital adalah platform inovatif yang menyediakan akses mudah ke berbagai sumber daya literatur secara online. Kami berkomitmen untuk memajukan literasi digital, memperluas jangkauan pengetahuan, dan mendukung pembelajaran seumur hidup melalui teknologi modern. Dengan koleksi e-book yang luas dan layanan peminjaman digital, kami bertujuan untuk membawa pengalaman perpustakaan tradisional ke era digital, memungkinkan pengguna untuk mengakses pengetahuan kapan saja dan di mana saja.</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Riwayat Transaksi - Perpustakaan Digital{% endblock %}
+
+{% block content %}
+
+{% if user == session['user']['username'] %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Riwayat Transaksi {{user}}</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal Transaksi</th>
+                        {% if session['user']['role'] == 'admin' %}
+                            <th>Nama Peminjam</th>
+                        {% endif %}
+                        <th>Judul Buku</th>
+                        <th>ID Buku</th>
+                        <th>Kategori</th>
+                        <th>Tanggal Pinjam</th>
+                        <th>Tanggal Kembali</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Melakukan perulangan untuk setiap transaksi dalam daftar user_records_transaction -->
+                    {% for transaction in transactions['user_records_transaction'] %}
+                        <!-- Memeriksa apakah transaksi milik pengguna saat ini atau admin -->
+                        {% if transaction['account_info']['username'] == user or session['user']['role'] == 'admin' %}
+                            <tr>
+                                <!-- Menampilkan nomor urut -->
+                                <td>{{ loop.index }}</td>
+                                <!-- Menampilkan tanggal transaksi -->
+                                <td>{{ transaction['transaction_date'] }}</td>
+                                <!-- Menampilkan nama peminjam hanya untuk admin -->
+                                {% if session['user']['role'] == 'admin' %}
+                                    <td>{{ transaction['account_info']['fullname'] }}</td>
+                                {% endif %}
+                                <!-- Menampilkan judul buku -->
+                                <td>{{ transaction['book_title'] }}</td>
+                                <!-- Menampilkan ID buku -->
+                                <td>{{ transaction['book_id'] }}</td>
+                                <!-- Menampilkan kategori buku -->
+                                <td>{{ transaction['category'] }}</td>
+                                <!-- Menampilkan tanggal peminjaman -->
+                                <td>{{ transaction['borrow_date'] }}</td>
+                                <!-- Menampilkan tanggal pengembalian -->
+                                <td>{{ transaction['return_date'] }}</td>
+                                <!-- Menampilkan status transaksi saat ini -->
+                                <td>
+                                    {{ transaction['status'] }}
+                                    {% if transaction['status'] == 'Dipinjam' %}
+                                        <form action="{{ url_for('history_transaction', user=user) }}" method="POST" style="display: inline; margin-left: 10px;">
+                                            <button type="submit" class="btn btn-sm btn-primary">Kembalikan</button>
+                                        </form>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% else %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Akses Ditolak!</h4>
+                    <p>Maaf, Anda tidak memiliki izin untuk melihat riwayat transaksi pengguna lain.</p>
+                    <hr>
+                    <p class="mb-0">Silakan kembali ke halaman <a href="{{ url_for('dashboard') }}">dashboard</a> atau lihat riwayat transaksi Anda sendiri.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
